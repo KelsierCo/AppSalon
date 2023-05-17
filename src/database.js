@@ -8,7 +8,6 @@ const pool = new Pool({
     database: 'salon_db'
 })
 
-pool.query('SELECT NOW()',(err, res) => {
-    console.log(err, res)
-    pool.end()
-})
+pool.connect().then(db => console.log('conectado')).catch(err => console.err(err));
+
+module.exports = pool;

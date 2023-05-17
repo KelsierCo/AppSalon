@@ -1,6 +1,20 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const morgan = require("morgan");
+const path = require("path");
 
-app.listen(3000, () => {
-    console.log('server on port 3000')
-})
+const usuarioRoutes = require('./routes/usuarios.routes')
+
+const app = express();
+
+app.set("port", process.env.PORT || 3000);
+
+app.use(morgan('dev'));
+app.use(express.json());
+
+app.use(usuarioRoutes)
+
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.listen(app.get('port'), () => {
+  console.log(`server on port ${app.get('port')}`);
+});
