@@ -9,6 +9,6 @@ const pool = new Pool({
     database: db.database
 })
 
-pool.connect().then(db => console.log('conectado')).catch(err => console.err(err));
+pool.connect().then(db => console.log('conectado')).catch(err => console.log(err));
 
 module.exports = pool;
