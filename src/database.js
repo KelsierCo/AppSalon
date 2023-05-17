@@ -1,11 +1,12 @@
 const { Pool } = require('pg')
+const { db } = require('./config')
 
 const pool = new Pool({
-    host: "172.17.0.2",
-    port: 5432,
-    user: 'postgres',
-    password: '1234',
-    database: 'salon_db'
+    host: db.host,
+    port: db.port,
+    user: db.user,
+    password: db.password,
+    database: db.database
 })
 
 pool.connect().then(db => console.log('conectado')).catch(err => console.err(err));
