@@ -7,7 +7,7 @@ const usuarioRoutes = require("./routes/usuarios.routes");
 
 const app = express();
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 
 app.use(cors());
 app.use(morgan("dev"));

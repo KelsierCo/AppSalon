@@ -1,0 +1,18 @@
+nav{
+    padding: 0 2%;
+    background-color: #d5bff3;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+menu{
+    display: flex;
+    gap: 4%;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}

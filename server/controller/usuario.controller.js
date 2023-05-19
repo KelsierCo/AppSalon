@@ -65,10 +65,25 @@ const cambiarContrasena = async (req, res) => {
   res.json(result.rows[0]);
 };
 
+const iniciarUsuario = async (req, res) =>{
+  const { correo, contrasena } = req.body;
+
+  const result = await pool.query(
+    'SELECT nombre from usuario WHERE correo = $1 AND contrasena = $2',
+    [correo, contrasena]
+  );
+  if (result.rows.length === 0)
+  return res.status(404).json({
+    message: "alguno de los datos no fue encontrado",
+  });
+  res.json(result.rows[0]);
+}
+
 module.exports = {
-  getUsuarios: getUsuarios,
-  getUsuario: getUsuario,
-  crearUsuario: crearUsuario,
-  eliminarUsuario: eliminarUsuario,
-  cambiarContrasena: cambiarContrasena,
+  getUsuarios,
+  getUsuario,
+  crearUsuario,
+  eliminarUsuario,
+  cambiarContrasena,
+  iniciarUsuario
 };

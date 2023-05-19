@@ -1,26 +1,15 @@
-import './App.css';
-import { createBrowserRouter, Outlet, RouterProvider} from "react-router-dom"
-import ListaUsuarios from "./components/Admin/ListaUsuarios"
+import { createBrowserRouter, RouterProvider} from "react-router-dom"
+import ListaUsuarios from "./components/admin/ListaUsuarios"
 import Inicio from './components/general/Inicio';
-import NavBar from './components/general/NavBar';
+import Pagina from './components/principal/Pagina'
 import NotFound from './components/general/NotFound'
-import InicioSesion from './components/Usuario/InicioSesion';
+import InicioSesion from './components/general/InicioSesion';
 import Registrar from './components/general/Registrar';
-
-
-const Principal = ()=>{
-  return (<>
-    <header>
-      <NavBar/>
-    </header>
-    <Outlet />
-  </>)
-}
 
 const router = createBrowserRouter([
   {
     path: "",
-    element: <Principal/>,
+    element: <Pagina/>,
     errorElement: <NotFound/>,
     children: [
       { path: "", element: <Inicio/>},
