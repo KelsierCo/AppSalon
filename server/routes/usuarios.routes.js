@@ -7,9 +7,9 @@ router.get('/usuarios', getUsuarios)
 
 router.get('/usuario/:id', getUsuario)
 
-router.get('/usuario', iniciarUsuario)
+router.post('/usuario', iniciarUsuario)
 
-router.post('/usuario', crearUsuario)
+router.post('/crearUsuario', crearUsuario)
 
 router.delete('/usuario', eliminarUsuario)
 

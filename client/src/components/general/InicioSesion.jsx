@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import login from '../../service/login'
 
 function InicioSesion() {
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(Correo);
-    console.log(Contrasena);
-  }
-
   const [Correo, setCorreo] = useState("");
   const [Contrasena, setContrasena] = useState("");
+  const [nombre, setNombre] = useState("")
+
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    const datos = {
+      correo: Correo,
+      contrasena: Contrasena
+    }
+    const res = await login(datos)
+    setNombre(res.nombre)
+  }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLogin}>
       <label>Correo</label>
       <input
         type="email"
