@@ -1,5 +1,5 @@
 const login = async (datos) => {
-  const res = await fetch("http://localhost:3001/usuario", {
+  const res = await fetch("http://localhost:3001/login", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -7,6 +7,7 @@ const login = async (datos) => {
     body: JSON.stringify(datos),
   });
   const data = await res.json();
+  console.log(data)
   return data
 };
 

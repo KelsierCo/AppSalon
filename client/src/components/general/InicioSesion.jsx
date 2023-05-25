@@ -1,20 +1,28 @@
 import { useState, useEffect } from "react";
-import login from '../../service/login'
+import login from "../../service/login";
+import { useNavigate } from "react-router-dom";
 
 function InicioSesion() {
+  const navigate = useNavigate();
   const [Correo, setCorreo] = useState("");
   const [Contrasena, setContrasena] = useState("");
-  const [nombre, setNombre] = useState("")
+  const [nombre, setNombre] = useState("");
 
-  const handleLogin = async(e) => {
+  useEffect(() => {
+    if (nombre !== "") navigate("/");
+  }, [nombre, navigate]);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     const datos = {
       correo: Correo,
-      contrasena: Contrasena
-    }
-    const res = await login(datos)
-    setNombre(res.nombre)
-  }
+      contrasena: Contrasena,
+    };
+
+    const res = await login(datos);
+    setNombre(res.nombre);
+  };
 
   return (
     <form onSubmit={handleLogin}>
@@ -22,7 +30,6 @@ function InicioSesion() {
       <input
         type="email"
         name="correo"
-        
         onChange={(e) => {
           setCorreo(e.target.value);
         }}
