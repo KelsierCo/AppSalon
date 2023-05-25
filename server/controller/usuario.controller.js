@@ -26,15 +26,19 @@ const getUsuario = async (req, res) => {
 };
 
 const crearUsuario = async (req, res) => {
-  const { tipo, nombre, correo, contrasena } = req.body;
+  const { nombre, correo, contrasena } = req.body;
 
   const query =
-    "INSERT INTO usuario (tipo, nombre, correo, contrasena) VALUES ($1,$2,$3,$4) RETURNING *";
-  const datos = [tipo, nombre, correo, contrasena];
-
-  const result = await pool.query(query, datos);
-
-  res.json(result.rows[0]);
+    "INSERT INTO usuario (nombre, correo, contrasena) VALUES ($1,$2,$3) RETURNING *";
+  const datos = [ nombre, correo, contrasena];
+  try{
+    const result = await pool.query(query, datos);
+  
+    res.json(result.rows[0]);
+  }catch(error){
+    res.send(error)
+  }
+  
 };
 
 const eliminarUsuario = async (req, res) => {
