@@ -6,11 +6,14 @@ function InicioSesion() {
   const navigate = useNavigate();
   const [Correo, setCorreo] = useState("");
   const [Contrasena, setContrasena] = useState("");
-  const [nombre, setNombre] = useState("");
+  const [Usuario, setUsuario] = useState(null)
 
   useEffect(() => {
-    if (nombre !== "") navigate("/");
-  }, [nombre, navigate]);
+    if (Usuario!== null){
+      console.log(Usuario)
+      navigate("/");
+    } 
+  }, [Usuario, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ function InicioSesion() {
     };
 
     const res = await login(datos);
-    setNombre(res.nombre);
+    if(!res.message) setUsuario(res);
   };
 
   return (

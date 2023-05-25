@@ -7,7 +7,6 @@ const login = async (datos) => {
     body: JSON.stringify(datos),
   });
   const data = await res.json();
-  console.log(data)
   return data
 };
 
