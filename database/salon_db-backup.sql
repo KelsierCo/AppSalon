@@ -103,7 +103,7 @@ ALTER TABLE public.tipo OWNER TO postgres;
 
 CREATE TABLE public.usuario (
     id integer NOT NULL,
-    tipo integer,
+    tipo integer DEFAULT 1,
     nombre character varying(50),
     correo character varying(50),
     contrasena character varying(50)
@@ -178,6 +178,14 @@ ALTER TABLE ONLY public.localidad
 
 ALTER TABLE ONLY public.tipo
     ADD CONSTRAINT tipo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: usuario usuario_correo_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT usuario_correo_key UNIQUE (correo);
 
 
 --
