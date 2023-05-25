@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import login from "../../service/login";
+import {UsuarioContext} from '../principal/Pagina'
 import { useNavigate } from "react-router-dom";
 
 function InicioSesion() {
   const navigate = useNavigate();
   const [Correo, setCorreo] = useState("");
   const [Contrasena, setContrasena] = useState("");
-  const [Usuario, setUsuario] = useState(null)
+  const { Usuario, setUsuario } = useContext(UsuarioContext)
+
 
   useEffect(() => {
     if (Usuario!== null){
@@ -24,7 +26,7 @@ function InicioSesion() {
     };
 
     const res = await login(datos);
-    if(!res.message) setUsuario(res);
+    if(!res.message) setUsuario(res)
   };
 
   return (

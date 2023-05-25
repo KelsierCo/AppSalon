@@ -2,17 +2,15 @@ import { createContext, useState } from "react"
 import { Outlet } from "react-router-dom"
 import NavBar from "./NavBar"
 
-const UsuarioContext = createContext(null);
+export const UsuarioContext = createContext(null);
 
-function Pagina() {
+export function Pagina() {
   const [Usuario, setUsuario] = useState(null)
 
   return (
-    <UsuarioContext.Provider value={Usuario}>
+    <UsuarioContext.Provider value={{Usuario, setUsuario}}>
         <NavBar/>
         <Outlet/>
     </UsuarioContext.Provider>
   )
 }
-
-export default Pagina
