@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const usuarioRoutes = require("./routes/usuarios.routes");
 const loginRoutes = require("./routes/login.routes");
+const decoracionRoutes = require("./routes/decoracion.routes");
 const DIRECTORIO_PERMITIDO = "http://localhost:3000";
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use(usuarioRoutes);
 app.use(loginRoutes);
+app.use(decoracionRoutes);
 
 app.listen(app.get("port"), () => {
   console.log(`server on port ${app.get("port")}`);

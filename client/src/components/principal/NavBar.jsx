@@ -11,8 +11,8 @@ function NavBar() {
     <nav>
       <NavLink to=''>Salon de Eventos</NavLink>
       <menu>
-        <p>Decoracion</p>
-        <p>Eventos</p>
+        <NavLink to='/decoracion'><p>decoracion</p></NavLink>
+        <NavLink to='/eventos'><p>eventos</p></NavLink>
         {Usuario && <p>mis eventos</p>}
         {Usuario ? <OpcionesLogout/> : <OpcionesLogin/>}
       </menu>
