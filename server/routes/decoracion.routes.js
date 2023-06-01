@@ -15,8 +15,8 @@ router.get("/decoracion/:id", decoracion);
 
 router.post("/decoracion", crearDecoracion);
 
-router.delete("/decoracion", eliminarDecoracion);
+router.delete("/decoracion/:id", eliminarDecoracion);
 
-router.put("/decoracion", actualizarDecoracion);
+router.put("/decoracion/:id", actualizarDecoracion);
 
 module.exports = router;
