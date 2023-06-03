@@ -3,13 +3,14 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 
 function Eventos() {
-  const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio"]
+  const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
   const [Dia, setDia] = useState(new Date());
   console.log(Dia.getMonth())
   return (
     <div>
-      <div>
-        <h3>Eventos del dia {Dia.getDate()} de {meses[Dia.getMonth()]} del {Dia.getFullYear()}</h3>      
+      <div className='eventos'>
+        <h3>Eventos del dia {Dia.getDate()} de {meses[Dia.getMonth()]} del {Dia.getFullYear()}</h3>
+
       </div>
       <Calendar onChange={setDia} value={Dia}/>
 
